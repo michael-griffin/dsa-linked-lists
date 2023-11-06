@@ -162,76 +162,76 @@ describe("insertAt", function() {
   });
 });
 
-// describe("removeAt", function() {
-//   it("removes items from list", function() {
-//     let lst = new LinkedList([5, 10, 15, 20]);
+describe("removeAt", function() {
+  it("removes items from list", function() {
+    let lst = new LinkedList([5, 10, 15, 20]);
 
-//     expect(lst.length).toBe(4);
-//     expect(lst.removeAt(2)).toBe(15);
-//     expect(lst.length).toBe(3);
+    expect(lst.length).toBe(4);
+    expect(lst.removeAt(2)).toBe(15);
+    expect(lst.length).toBe(3);
 
-//     expect(lst.removeAt(0)).toBe(5);
-//     expect(lst.length).toBe(2);
+    expect(lst.removeAt(0)).toBe(5);
+    expect(lst.length).toBe(2);
 
-//     expect(lst.removeAt(1)).toBe(20);
-//     expect(lst.length).toBe(1);
-//   });
+    expect(lst.removeAt(1)).toBe(20);
+    expect(lst.length).toBe(1);
+  });
 
-//   it("removes from 1-item list", function() {
-//     let lst = new LinkedList(["a"]);
+  it("removes from 1-item list", function() {
+    let lst = new LinkedList(["a"]);
 
-//     lst.removeAt(0);
-//     expect(lst.length).toBe(0);
-//     expect(lst.head).toBe(null);
-//     expect(lst.tail).toBe(null);
-//   });
+    lst.removeAt(0);
+    expect(lst.length).toBe(0);
+    expect(lst.head).toBe(null);
+    expect(lst.tail).toBe(null);
+  });
 
-//   it("throws an error when removeAt index is out of range", function () {
-//     let lst = new LinkedList([5]);
+  it("throws an error when removeAt index is out of range", function () {
+    let lst = new LinkedList([5]);
 
-//     expect(() => lst.removeAt(-1)).toThrow(Error);
-//     expect(() => lst.removeAt(1)).toThrow(Error);
-//   });
-// });
+    expect(() => lst.removeAt(-1)).toThrow(Error);
+    expect(() => lst.removeAt(1)).toThrow(Error);
+  });
+});
 
-// describe("average", function() {
-//   it("calculates the average of items in a list", function() {
-//     let lst = new LinkedList([2, 3, 1, 1, 7, 6, 9]);
-//     expect(lst.average()).toBeCloseTo(4.1429, 4);
-//   });
+describe("average", function() {
+  it("calculates the average of items in a list", function() {
+    let lst = new LinkedList([2, 3, 1, 1, 7, 6, 9]);
+    expect(lst.average()).toBeCloseTo(4.1429, 4);
+  });
 
-//   it("returns 0 for empty lists", function() {
-//     let lst = new LinkedList();
-//     expect(lst.average()).toBe(0);
-//   });
-// });
+  it("returns 0 for empty lists", function() {
+    let lst = new LinkedList();
+    expect(lst.average()).toBe(0);
+  });
+});
 
-// describe("reverseInPlace", function() {
-//   it("reverses a list of 3 in place", function() {
-//     let lst = new LinkedList([1,2,3]);
-//     lst.reverseInPlace();
-//     expect(lst.head.val).toBe(3);
-//     expect(lst.head.next.val).toBe(2);
-//     expect(lst.head.next.next.val).toBe(1);
-//     expect(lst.tail.val).toBe(1);
-//     expect(lst.tail.next).toBe(null);
-//   });
+describe("reverseInPlace", function() {
+  it("reverses a list of 3 in place", function() {
+    let lst = new LinkedList([1,2,3]);
+    lst.reverseInPlace();
+    expect(lst.head.val).toBe(3);
+    expect(lst.head.next.val).toBe(2);
+    expect(lst.head.next.next.val).toBe(1);
+    expect(lst.tail.val).toBe(1);
+    expect(lst.tail.next).toBe(null);
+  });
 
-//   it("reverses a list of 2 in place", function() {
-//     let lst = new LinkedList([1,2]);
-//     lst.reverseInPlace();
-//     expect(lst.head.val).toBe(2);
-//     expect(lst.head.next.val).toBe(1);
-//     expect(lst.tail.val).toBe(1);
-//   });
+  it("reverses a list of 2 in place", function() {
+    let lst = new LinkedList([1,2]);
+    lst.reverseInPlace();
+    expect(lst.head.val).toBe(2);
+    expect(lst.head.next.val).toBe(1);
+    expect(lst.tail.val).toBe(1);
+  });
 
-//   it("reverses a list of 1 in place", function() {
-//     let lst = new LinkedList([1]);
-//     lst.reverseInPlace();
-//     expect(lst.head.val).toBe(1);
-//     expect(lst.head.next).toBe(null);
-//     expect(lst.tail.val).toBe(1);
-//     expect(lst.tail.next).toBe(null);
-//   });
-// });
+  it("reverses a list of 1 in place", function() {
+    let lst = new LinkedList([1]);
+    lst.reverseInPlace();
+    expect(lst.head.val).toBe(1);
+    expect(lst.head.next).toBe(null);
+    expect(lst.tail.val).toBe(1);
+    expect(lst.tail.next).toBe(null);
+  });
+});
 

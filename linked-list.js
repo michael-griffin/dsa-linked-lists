@@ -24,7 +24,7 @@ class LinkedList {
 
   push(val) {
     let newTail = new Node(val);
-    if (this.length === 0){
+    if (this.length === 0) {
       this.head = newTail;
     } else {
       this.tail.next = newTail;
@@ -37,7 +37,7 @@ class LinkedList {
 
   unshift(val) {
     let newHead = new Node(val);
-    if (this.length === 0){
+    if (this.length === 0) {
       this.tail = newHead;
     } else {
       newHead.next = this.head;
@@ -61,7 +61,7 @@ class LinkedList {
     }
 
     //Handle general case
-    while (current.next !== null){
+    while (current.next !== null) {
       prev = current;
       current = current.next;
     }
@@ -77,7 +77,7 @@ class LinkedList {
 
     //Handle case where length = 1;
     let shifted = this.head;
-    if (this.length === 1){
+    if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
@@ -97,7 +97,7 @@ class LinkedList {
     let count = 0;
     let current = this.head;
     //[5, 10, 15]
-    while (count < idx){
+    while (count < idx) {
       current = current.next;
       count++;
     }
@@ -112,7 +112,7 @@ class LinkedList {
     let count = 0;
     let current = this.head;
     //[5, 10, 15]
-    while (count < idx){
+    while (count < idx) {
       current = current.next;
       count++;
     }
@@ -140,7 +140,7 @@ class LinkedList {
     let current = this.head;
     let count = 0;
 
-    while (count < idx){
+    while (count < idx) {
       prev = current;
       current = current.next;
       count++;
@@ -153,13 +153,76 @@ class LinkedList {
   /** removeAt(idx): return & remove item at idx, */
 
   removeAt(idx) {
+    if (idx >= this.length || idx < 0) throw new Error;
 
+    if (idx === this.length - 1) {
+      return this.pop();
+    }
+
+    if (idx === 0) {
+      return this.shift();
+    }
+
+    let prev = this.head;
+    let current = this.head;
+    let count = 0;
+
+    while (count < idx) {
+      prev = current;
+      current = current.next;
+      count++;
+    }
+    this.length--;
+    prev.next = current.next;
+
+    return current.val;
   }
 
   /** average(): return an average of all values in the list */
 
   average() {
+    let sum = 0;
+    let count = 0;
 
+    let current = this.head;
+
+    while (count < this.length) {
+      sum += current.val
+      current = current.next;
+      count++;
+    }
+
+    if (this.length === 0) return 0;
+    return sum/count;
+  }
+
+
+  /** Reverse all values in place without returning a new Linked List. */
+  // [1,2,3,4]
+  reverseInPlace() {
+
+    let headTemp = this.head;
+    this.head = this.tail;
+    this.tail = headTemp;
+
+    let prev;
+    let current = headTemp;
+    let next = current.next;
+
+    let count = 0;
+
+    while (count < this.length) {
+      prev = current;
+      current = next;
+      next = current.next;
+
+      current.next = prev;
+
+      debugger;
+      count++;
+    }
+
+    this.tail.next = null;
   }
 }
 
